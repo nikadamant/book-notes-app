@@ -7,16 +7,8 @@ Track your non-fiction book notes, reviews, ratings, and covers!
 1. Install dependencies:
 npm install
 
-markdown
-Copy
-Edit
-
 2. Run the app:
 nodemon index.js
-
-sql
-Copy
-Edit
 
 3. Visit: `http://localhost:3000`
 
