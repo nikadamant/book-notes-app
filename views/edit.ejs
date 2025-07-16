@@ -1,11 +1,14 @@
 <%- include('partials/header') %>
 <h2>Edit Book</h2>
-<form action="/books/<%= book.id %>" method="POST">
-  Title: <input name="title" value="<%= book.title %>"><br>
-  Author: <input name="author" value="<%= book.author %>"><br>
-  Review: <textarea name="review"><%= book.review %></textarea><br>
-  Rating: <input type="number" name="rating" value="<%= book.rating %>" min="1" max="10"><br>
-  Read Date: <input type="date" name="read_date" value="<%= book.read_date.toISOString().split('T')[0] %>"><br>
-  <button>Update Book</button>
+
+<form action="/books/<%= book.id %>" method="POST" class="form">
+  <input name="title" value="<%= book.title %>" required>
+  <input name="author" value="<%= book.author %>" required>
+  <textarea name="review"><%= book.review %></textarea>
+  <input type="number" name="rating" value="<%= book.rating %>" min="1" max="10">
+  <input type="date" name="read_date" value="<%= book.read_date.toISOString().split('T')[0] %>">
+  <button class="btn btn-add">Save Changes</button>
 </form>
+
+<a href="/books/<%= book.id %>" class="btn btn-back">⬅ Back</a>
 <%- include('partials/footer') %>

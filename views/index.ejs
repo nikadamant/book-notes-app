@@ -1,14 +1,19 @@
 <%- include('partials/header') %>
 
-<h1>My Book Notes</h1>
-<a href="/books/new">Add New Book</a>
-<ul>
+<h1>📚 My Book Notes</h1>
+
+<form action="/books/new" method="GET">
+  <button class="btn-add">➕ Add New Book</button>
+</form>
+
+<ul class="book-list">
   <% books.forEach(book => { %>
-    <li>
-      <a href="/books/<%= book.id %>"><%= book.title %></a>
-      - <%= book.rating %>/10
-      <form action="/books/<%= book.id %>/delete" method="POST" style="display:inline;">
-        <button>Delete</button>
+    <li class="book-item">
+      <div class="book-info">
+        <a href="/books/<%= book.id %>"><strong><%= book.title %></strong> by <%= book.author %></a> — <%= book.rating %>/10
+      </div>
+      <form class="inline-form" action="/books/<%= book.id %>/delete" method="POST">
+        <button class="btn small danger btn-delete">Delete</button>
       </form>
     </li>
   <% }) %>

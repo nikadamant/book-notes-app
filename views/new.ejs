@@ -1,12 +1,15 @@
 <%- include('partials/header') %>
 <h2>Add a New Book</h2>
-<form action="/books" method="POST">
-  Title: <input name="title"><br>
-  Author: <input name="author"><br>
-  ISBN: <input name="isbn"><br>
-  Review: <textarea name="review"></textarea><br>
-  Rating: <input type="number" name="rating" min="1" max="10"><br>
-  Read Date: <input type="date" name="read_date"><br>
-  <button>Add Book</button>
+
+<form action="/books" method="POST" class="form">
+  <input name="title" placeholder="Title" required>
+  <input name="author" placeholder="Author" required>
+  <input name="isbn" placeholder="ISBN (for cover)" required>
+  <textarea name="review" placeholder="Review"></textarea>
+  <input type="number" name="rating" placeholder="Rating" min="1" max="10">
+  <input type="date" name="read_date">
+  <button class="btn primary">Add Book</button>
 </form>
+
+<a href="/" class="btn">⬅ Back</a>
 <%- include('partials/footer') %>
