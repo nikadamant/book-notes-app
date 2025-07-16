@@ -1,0 +1,9 @@
+<%- include('partials/header') %>
+<h2><%= book.title %></h2>
+<img src="<%= book.cover_url %>" alt="Book cover">
+<p><strong>Author:</strong> <%= book.author %></p>
+<p><strong>Rating:</strong> <%= book.rating %>/10</p>
+<p><strong>Review:</strong> <%= book.review %></p>
+<p><strong>Read on:</strong> <%= book.read_date.toDateString() %></p>
+<a href="/books/<%= book.id %>/edit">Edit</a>
+<%- include('partials/footer') %>
