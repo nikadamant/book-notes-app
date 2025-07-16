@@ -1,13 +1,22 @@
 import express from 'express';
 import path from 'path';
+import pg from 'pg';
 import { fileURLToPath } from 'url';
-import db from './db.js';
 import axios from 'axios';
 import bodyParser from 'body-parser';
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const db = new pg.Client({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'book_notes',
+  password: 'NICER312',
+  port: 4717,
+});
+db.connect();
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
