@@ -2,19 +2,21 @@ import express from 'express';
 import path from 'path';
 import pg from 'pg';
 import { fileURLToPath } from 'url';
-import axios from 'axios';
 import bodyParser from 'body-parser';
+import env from 'dotenv';
+
+env.config();
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const db = new pg.Client({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'book_notes',
-  password: 'NICER312',
-  port: 4717,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
 });
 db.connect();
 
